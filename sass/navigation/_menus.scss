@@ -1,86 +1,215 @@
+// Header Styles
+.site-header {
+  z-index: 999;
+  padding: 1em;
+  max-width: $max-width-site;
+  margin: 0 auto;
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0);
+  -webkit-transition: all ease-out 0.5s;
+  -moz-transition: all ease-out 0.5s;
+  -o-transition: all ease-out 0.5s;
+  transition: all ease-out 0.5s;
+
+  &.active {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  .site-branding {
+    position: absolute;
+    z-index: 9999;
+    width: 70%;
+    .custom-logo-link {
+      display: block;
+      max-width: 280px;
+    }
+  }
+  @media screen and (min-width: 700px) {
+    padding: 1.5em 1em;
+
+    .site-branding {
+      position: unset;
+      margin-right: 2em;
+    }
+  }
+}
+
+.menu-toggle {
+  display: block;
+  margin: 0;
+  padding: 15px 1em;
+  font-size: 0.9em;
+  color: #fff;
+  float: right;
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+}
+
+.menu-toggle > svg {
+  fill: #3aaf55;
+}
+
 .main-navigation {
+  font-family: $font-brand-san-serif;
+  text-transform: uppercase;
   clear: both;
   display: block;
-  float: left;
   width: 100%;
+  height: 60px;
+  line-height: 60px;
+  z-index: 999;
+
+  &.toggled .nav-menu {
+    display: block;
+    height: 100%;
+    opacity: 1;
+    clear: both;
+  }
 
   ul {
     display: none;
-    list-style: none;
-    margin: 0;
     padding-left: 0;
-
-    ul {
-      float: left;
-      position: absolute;
-      top: 100%;
-      left: -999em;
-      z-index: 99999;
-
-      ul {
-        left: -999em;
-        top: 0;
-      }
-
-      li {
-        &:hover > ul,
-        &.focus > ul {
-          left: 100%;
-        }
-      }
-
-      a {
-        width: 200px;
-      }
-
-      :hover > a,
-      .focus > a {
-      }
-
-      a:hover,
-      a.focus {
-      }
-    }
-
-    li:hover > ul,
-    li.focus > ul {
-      left: auto;
-    }
+    // transition: all 0.3s ease-out;
   }
 
   li {
-    float: left;
     position: relative;
-
-    &:hover > a,
-    &.focus > a {
-    }
+    float: none;
   }
 
-  a {
+  li a {
     display: block;
-    text-decoration: none;
+    padding: 0em 1em;
+    font-size: 0.9em;
+    text-align: center;
+    font-weight: 700;
+    color: $color-primary-mint;
   }
 
-  .current_page_item > a,
-  .current-menu-item > a,
-  .current_page_ancestor > a,
-  .current-menu-ancestor > a {
+  ul ul,
+  ul ul ul {
+    position: relative;
+    display: block;
   }
+
+  ul ul a {
+    width: 100%;
+  }
+
+  ul a:hover,
+  ul ul a:hover,
+  .current_page_ancestor,
+  ul ul .current_page_parent,
+  .current_page_parent .current_page_item > a,
+  ul ul :hover > a,
+  .current_page_item > a,
+  .current_page_item > a:hover,
+  .current_page_item li:hover,
+  .current_page_parent .current_page_item > a {
+    color: white;
+  }
+}
+
+.menu-main-menu-container > ul {
+  background: #4b4b4bce;
 }
 
 /* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
+.menu-toggle {
   display: block;
 }
+.main-navigation.toggled ul {
+  display: none;
+}
 
-@media screen and (min-width: 37.5em) {
+/***************************************/
+/** Media Query **/
+/***************************************/
+@media screen and (min-width: 700px) {
   .menu-toggle {
     display: none;
   }
-  .main-navigation ul {
-    display: block;
+
+  .menu-main-menu-container > ul {
+    background: none;
+  }
+
+  .menu-main-menu-container > ul > li > a {
+    padding: 0 20px;
+  }
+
+  .sub-menu {
+    width: 100%;
+  }
+
+  .main-navigation {
+    width: inherit;
+    line-height: 32px;
+    height: 32px;
+
+    li a {
+      color: $color-secondary-grey;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    li {
+      padding: 0;
+      white-space: nowrap;
+    }
+
+    ul ul {
+      position: absolute;
+      left: 0;
+      z-index: 99999;
+      display: none;
+      float: left;
+      padding: 14px 0 0 0;
+      margin-left: 0;
+      width: max-content;
+    }
+
+    ul ul a {
+      height: 36px;
+      line-height: 36px;
+      text-transform: none;
+      text-align: left;
+      background-color: #fff;
+    }
+    ul li:hover > ul {
+      display: block;
+    }
+
+    .current_page_item > a,
+    .current-menu-item > a,
+    .current_page_item > a:hover,
+    .current-menu-item > a:hover,
+    ul a:hover,
+    ul ul a:hover,
+    .current_page_ancestor,
+    ul ul .current_page_parent,
+    .current_page_parent .current_page_item > a,
+    ul ul :hover > a,
+    .current_page_item > a,
+    .current_page_item > a:hover,
+    .current_page_item li:hover,
+    .current_page_parent .current_page_item > a {
+      color: $color-primary-mint;
+    }
   }
 }
 

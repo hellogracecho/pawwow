@@ -37,7 +37,6 @@
 				<?php
 			endif;?>
 		</div><!-- .site-branding -->
-
 		<nav id="site-navigation" class="main-navigation">
 			<button class="button menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php  get_template_part('images/icon', 'nav-open');?></button>
 			<?php
