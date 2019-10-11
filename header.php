@@ -40,14 +40,12 @@
 
 		<nav id="site-navigation" class="main-navigation">
 			<button class="button menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php  get_template_part('images/icon', 'nav-open');?></button>
-			<div class="overlay">
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',
 				'menu_id'        => 'primary-menu',
 			) );
 			?>
-			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
