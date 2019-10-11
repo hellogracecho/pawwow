@@ -30,14 +30,24 @@ get_header();
 			</div>
 			<?php endif; ?>
 			<!-- Insert LOGO -->
-			<?php
-			// ** Welcoming message
-			if (function_exists('get_field')) :
-				$field = get_field_object('welcoming_message');
-				if ( $field ) { ?>
-					<h1><?php echo $field[ 'value' ]; ?></h1>
-				<?php }
-			endif;?>	
+			<div  class="hero-text">
+				<?php
+				// ** Welcoming message
+				if (function_exists('get_field')) :
+					$field = get_field_object('welcoming_message_main_title');
+					if ( $field ) { ?>
+						<h1><?php echo $field[ 'value' ]; ?></h1>
+					<?php }
+				endif;
+				
+				if (function_exists('get_field')) :
+					$field = get_field_object('welcoming_message_sub_title');
+					if ( $field ) { ?>
+						<h2><?php echo $field[ 'value' ]; ?></h2>
+					<?php }
+				endif;
+				?>	
+			</div>
 		</div><!-- End of Slider -->
 		<main id="main" class="site-main">
 		<section class="who-we-are">

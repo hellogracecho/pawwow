@@ -17,11 +17,11 @@ get_header();
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main contact">
+			<h1>Contact Us</h1>
 		<section class="general-message">
 		<?php if (function_exists('get_field')) {
 				$field = get_field_object('general_message');
 				if ( $field ) { ?>
-					<h2>Contact Us</h2>
 					<p><?php the_field('general_message'); ?></p>
 				<?php }
 			}?>	
@@ -35,6 +35,7 @@ get_header();
 			<?php endif; ?>
 			</div>
 			<div class="map-info">
+				<h2>Visit Us</h2>
 			<?php the_field('map_info'); ?>
 			</div>
 		</section>

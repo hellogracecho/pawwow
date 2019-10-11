@@ -2,9 +2,10 @@
   display: block;
 }
 
-.post,
-.page {
-  margin: 0;
+.site-content {
+  max-width: $max-width-site;
+  margin: 0 auto;
+  padding: 0 1em;
 }
 
 .updated:not(.published) {
@@ -20,4 +21,41 @@
 .page-links {
   clear: both;
   margin: 0 0 1.5em;
+}
+
+// Home Full background slider and Hero Text
+.front-slider {
+  position: relative;
+  .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+
+    h1 {
+      font-size: 3em;
+      line-height: 1em;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin: 0 0 1em;
+    }
+
+    h2 {
+      margin: 0;
+      letter-spacing: 2px;
+      text-transform: capitalize;
+      font-size: 1.5em;
+    }
+
+    @media (min-width: 600px) {
+      h1 {
+        font-size: 5em;
+      }
+      h2 {
+        font-size: 2em;
+      }
+    }
+  }
 }

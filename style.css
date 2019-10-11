@@ -376,6 +376,10 @@ h2,
 h3 {
   font-family: "Abril Fatface", cursive; }
 
+h1,
+h2 {
+  letter-spacing: 2px; }
+
 p {
   margin-bottom: 1.5em;
   font-family: "Open Sans", sans-serif; }
@@ -593,7 +597,7 @@ a {
   -o-transition: all ease-out 0.5s;
   transition: all ease-out 0.5s; }
   .site-header.active {
-    background-color: rgba(255, 255, 255, 0.8); }
+    background-color: white; }
   .site-header .site-branding {
     position: absolute;
     z-index: 9999;
@@ -842,6 +846,9 @@ a {
 .site-footer:after {
   clear: both; }
 
+.content-area {
+  margin-top: 90px; }
+
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
@@ -860,9 +867,10 @@ a {
 .sticky {
   display: block; }
 
-.post,
-.page {
-  margin: 0; }
+.site-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1em; }
 
 .updated:not(.published) {
   display: none; }
@@ -876,16 +884,45 @@ a {
   clear: both;
   margin: 0 0 1.5em; }
 
+.front-slider {
+  position: relative; }
+  .front-slider .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white; }
+    .front-slider .hero-text h1 {
+      font-size: 3em;
+      line-height: 1em;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin: 0 0 1em; }
+    .front-slider .hero-text h2 {
+      margin: 0;
+      letter-spacing: 2px;
+      text-transform: capitalize;
+      font-size: 1.5em; }
+    @media (min-width: 600px) {
+      .front-slider .hero-text h1 {
+        font-size: 5em; }
+      .front-slider .hero-text h2 {
+        font-size: 2em; } }
+
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
+.site-footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1em; }
+
 .footer-container {
   background: #3cb7a3;
   padding: 2em 1em;
   display: grid;
   grid-gap: 1.5em;
-  max-width: 1200px;
-  margin: 0 auto;
   position: relative;
   border-right: 5px solid #3cb7a3;
   border-left: 5px solid #3cb7a3;
