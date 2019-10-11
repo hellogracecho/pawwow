@@ -27,6 +27,7 @@
 
 		<div class="footer-container">
 			<div class="company-info">
+				<h3>About Pawwow</h3>
 				<?php
 				wp_nav_menu( array(
 					'theme_location' => 'footer-company-info',
@@ -35,6 +36,7 @@
 				?>
 			</div>
 			<div class="footer-contact">
+				<h3>Information</h3>
 				<?php
 				wp_nav_menu( array(
 					'theme_location' => 'footer-contact',
@@ -43,6 +45,7 @@
 				?>
 			</div>
 			<div class="footer-sitemap">
+				<h3>Sitemap</h3>
 				<?php
 				wp_nav_menu( array(
 					'theme_location' => 'footer-sitemap',
@@ -50,13 +53,10 @@
 				) );
 				?>
 			</div>
+			<div class="site-credit">
+				<p>&copy; <a href="https://hellogracecho.com/">Grace Cho</a></p>
+			</div><!-- .site-info -->
 		</div>
-		<div class="site-credit">
-			<?php
-			/* translators: 1: Theme name, 2: Theme author. */
-			printf( esc_html__( '&copy; %1$s 2019 %2$s.', 'pawwow' ), '', '<a href="https://hellogracecho.com/">Grace Cho</a>' );
-			?>
-		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

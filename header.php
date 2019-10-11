@@ -34,24 +34,20 @@
 				<?php
 			else :
 				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 				<?php
-			endif;
-			$pawwow_description = get_bloginfo( 'description', 'display' );
-			if ( $pawwow_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $pawwow_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
+			endif;?>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'pawwow' ); ?></button>
+			<button class="button menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php  get_template_part('images/icon', 'nav-open');?></button>
+			<div class="overlay">
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',
 				'menu_id'        => 'primary-menu',
 			) );
 			?>
+			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 

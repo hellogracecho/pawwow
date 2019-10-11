@@ -132,9 +132,9 @@ function pawwow_scripts() {
 	wp_enqueue_style( 'pawwow-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'pawwow-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
+	
 	wp_enqueue_script( 'pawwow-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
+		
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -173,7 +173,6 @@ function pawwow_scripts() {
 		);
 	}
 
-
 	// ****************************************
 	// ** Scroll To Top ** with Loading CSS
 	// ****************************************
@@ -197,6 +196,8 @@ function pawwow_scripts() {
 	wp_enqueue_script('scroll-reveal-script', get_template_directory_uri() .'/js/scroll-reveal.js',	array( 'jquery' ), 
 	'20191010',
 	true );
+
+	wp_enqueue_script( 'pawwow-scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), '20191010', true );
 
 }
 add_action( 'wp_enqueue_scripts', 'pawwow_scripts' );
@@ -262,3 +263,46 @@ function custom_field_excerpt() {
 	}
 	return apply_filters('the_excerpt', $text);
 }
+
+// Custom Login Page
+function wpb_login_logo() { 
+	if( !defined(THEME_IMG_PATH)){
+		define( 'THEME_IMG_PATH', get_stylesheet_directory_uri() . '/images' );
+	   }
+	?>
+
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url("<?php echo THEME_IMG_PATH; ?>/logo-pawwow.png");
+        height: 49px;
+        width: 320px;
+        background-size: 320px 49px;
+        background-repeat: no-repeat;
+        padding-bottom: 10px;
+		}
+		.wp-core-ui .button-group.button-large .button, .wp-core-ui .button.button-large {
+			background: #3cb7a3;
+			border: none;
+			box-shadow: none;
+			text-shadow: none;
+			text-transform: uppercase;
+		}
+		
+		body.login {
+			background: #f5fa7324;
+		}
+
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'wpb_login_logo' );
+
+function wpb_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'wpb_login_logo_url' );
+ 
+function wpb_login_logo_url_title() {
+    return 'PAW WOW, a pet store';
+}
+add_filter( 'login_headertitle', 'wpb_login_logo_url_title' );
+

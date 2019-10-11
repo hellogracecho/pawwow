@@ -57,7 +57,9 @@ html {
   line-height: 1.15;
   /* 1 */
   -webkit-text-size-adjust: 100%;
-  /* 2 */ }
+  /* 2 */
+  box-sizing: border-box;
+  overflow-x: hidden; }
 
 /* Sections
 	 ========================================================================== */
@@ -167,7 +169,8 @@ sup {
  * Remove the border on images inside links in IE 10.
  */
 img {
-  border-style: none; }
+  border-style: none;
+  display: block; }
 
 /* Forms
 	 ========================================================================== */
@@ -443,11 +446,14 @@ hr {
   height: 1px;
   margin-bottom: 1.5em; }
 
-ul, ol {
+ul,
+ol {
   margin: 0 0 1.5em 3em; }
 
 ul {
-  list-style: disc; }
+  list-style: none;
+  margin: 0;
+  padding: 0; }
 
 ol {
   list-style: decimal; }
@@ -558,11 +564,10 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  color: royalblue; }
-  a:visited {
-    color: purple; }
+  color: black;
+  text-decoration: none; }
   a:hover, a:focus, a:active {
-    color: midnightblue; }
+    color: #3cb7a3; }
   a:focus {
     outline: thin dotted; }
   a:hover, a:active {
@@ -582,7 +587,6 @@ a {
     margin: 0;
     padding-left: 0; }
     .main-navigation ul ul {
-      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
       float: left;
       position: absolute;
       top: 100%;
@@ -736,7 +740,7 @@ a {
 
 .post,
 .page {
-  margin: 0 0 1.5em; }
+  margin: 0; }
 
 .updated:not(.published) {
   display: none; }
@@ -753,11 +757,87 @@ a {
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
-.comment-content a {
-  word-wrap: break-word; }
-
-.bypostauthor {
-  display: block; }
+.footer-container {
+  background: #3cb7a3;
+  padding: 2em 1em;
+  display: grid;
+  grid-gap: 1.5em;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  border-right: 5px solid #3cb7a3;
+  border-left: 5px solid #3cb7a3;
+  /** Full Bleed Width Background CSS trick **/ }
+  .footer-container h3 {
+    text-transform: uppercase;
+    color: #fcffa1;
+    margin: 0 0 0.2em;
+    letter-spacing: 1.5px; }
+  .footer-container a,
+  .footer-container p {
+    color: white;
+    font-weight: 300; }
+  .footer-container p {
+    margin: 0;
+    padding-top: 1em;
+    letter-spacing: 4px;
+    font-size: 0.8em; }
+  .footer-container .site-credit {
+    text-align: center;
+    text-transform: uppercase; }
+  .footer-container .menu-footer-company-info-container li:nth-of-type(1) a {
+    pointer-events: none;
+    cursor: default; }
+  .footer-container .menu-footer-company-info-container li:nth-of-type(2) a {
+    text-decoration: underline;
+    color: white;
+    transition: all 0.3s ease-out; }
+    .footer-container .menu-footer-company-info-container li:nth-of-type(2) a:hover, .footer-container .menu-footer-company-info-container li:nth-of-type(2) a:focus, .footer-container .menu-footer-company-info-container li:nth-of-type(2) a:active {
+      color: #fcffa1; }
+  .footer-container .menu-footer-contact-container a {
+    pointer-events: none;
+    cursor: default; }
+  .footer-container .menu-footer-sitemap-container a {
+    line-height: 1.8em;
+    color: white;
+    transition: all 0.3s ease-out; }
+    .footer-container .menu-footer-sitemap-container a:hover, .footer-container .menu-footer-sitemap-container a:focus, .footer-container .menu-footer-sitemap-container a:active {
+      color: #fcffa1; }
+  @media (min-width: 560px) {
+    .footer-container {
+      grid-template-columns: 3fr 2fr;
+      grid-template-areas: "info sitemap" "contact sitemap" "credit credit"; }
+      .footer-container .company-info {
+        grid-area: info;
+        padding-left: 10%; }
+      .footer-container .footer-contact {
+        grid-area: contact;
+        padding-left: 10%; }
+      .footer-container .footer-sitemap {
+        grid-area: sitemap;
+        justify-self: center; }
+      .footer-container .site-credit {
+        grid-area: credit; } }
+  @media (min-width: 900px) {
+    .footer-container {
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-areas: "info  contact sitemap" "credit credit credit"; }
+      .footer-container .footer-contact {
+        padding-left: 0; }
+      .footer-container .footer-sitemap {
+        justify-self: normal; } }
+  .footer-container::before, .footer-container::after {
+    content: "";
+    position: absolute;
+    /* fill vertically */
+    top: 0;
+    bottom: 0;
+    width: 9600px;
+    right: 100%;
+    background: #3cb7a3; }
+  .footer-container::after {
+    width: 9600px;
+    left: 100%; }
 
 /*--------------------------------------------------------------
 # Infinite scroll

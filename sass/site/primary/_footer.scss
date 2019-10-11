@@ -1,0 +1,122 @@
+.footer-container {
+  background: $color-primary-mint;
+  padding: 2em 1em;
+  display: grid;
+  grid-gap: 1.5em;
+
+  h3 {
+    text-transform: uppercase;
+    color: $color-primary-yellow;
+    margin: 0 0 0.2em;
+    letter-spacing: 1.5px;
+  }
+
+  a,
+  p {
+    color: white;
+    font-weight: 300;
+  }
+  p {
+    margin: 0;
+    padding-top: 1em;
+    letter-spacing: 4px;
+    font-size: 0.8em;
+  }
+
+  .site-credit {
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .menu-footer-company-info-container {
+    li:nth-of-type(1) {
+      a {
+        pointer-events: none;
+        cursor: default;
+      }
+    }
+    li:nth-of-type(2) {
+      a {
+        text-decoration: underline;
+        @include link-white-hover;
+      }
+    }
+  }
+
+  .menu-footer-contact-container {
+    a {
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  .menu-footer-sitemap-container {
+    a {
+      line-height: 1.8em;
+      @include link-white-hover;
+    }
+  }
+
+  @media (min-width: 560px) {
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas:
+      "info sitemap"
+      "contact sitemap"
+      "credit credit";
+
+    .company-info {
+      grid-area: info;
+      padding-left: 10%;
+    }
+
+    .footer-contact {
+      grid-area: contact;
+      padding-left: 10%;
+    }
+
+    .footer-sitemap {
+      grid-area: sitemap;
+      justify-self: center;
+    }
+
+    .site-credit {
+      grid-area: credit;
+    }
+  }
+
+  @media (min-width: 900px) {
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-areas:
+      "info  contact sitemap"
+      "credit credit credit";
+
+    .footer-contact {
+      padding-left: 0;
+    }
+    .footer-sitemap {
+      justify-self: normal;
+    }
+  }
+
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  border-right: 5px solid $color-primary-mint;
+  border-left: 5px solid $color-primary-mint;
+  /** Full Bleed Width Background CSS trick **/
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    /* fill vertically */
+    top: 0;
+    bottom: 0;
+    width: 9600px;
+    right: 100%;
+    background: $color-primary-mint;
+  }
+  &::after {
+    width: 9600px;
+    left: 100%;
+  }
+}
