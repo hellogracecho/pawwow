@@ -14,6 +14,17 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+
+	<?php
+		echo "<div class='contact-link'>";
+		if (function_exists("get_field")) :
+			if ( !is_page('contact')) : ?>
+			<a href="<?php echo get_permalink( get_page_by_path( 'contact' )) ?>">Contact Us</a>
+		<?php endif;
+		endif;
+		echo "</div>";
+		?>
+
 		<div class="footer-container">
 			<div class="company-info">
 				<?php

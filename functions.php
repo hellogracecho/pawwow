@@ -241,7 +241,7 @@ add_action('admin_menu', 'post_remove');
 
 // Remove Block Editor Filters
 function ms_post_filter( $use_block_editor, $post ) {
-	if ( 13 === $post->ID | 29 === $post->ID ) {
+	if ( 13 === $post->ID | 29 === $post->ID | 8 === $post->ID ) {
 		return false;
 	}
 	return $use_block_editor;
@@ -256,8 +256,8 @@ function custom_field_excerpt() {
 		$text = strip_shortcodes( $text );
 		$text = apply_filters('the_content', $text);
 		$text = str_replace(']]>', ']]>', $text);
-		$excerpt_length = 40; // words count
-		$excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
+		$excerpt_length = 60; // words count
+		$excerpt_more = apply_filters('excerpt_more', ' ' . '...');
 		$text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
 	}
 	return apply_filters('the_excerpt', $text);

@@ -52,23 +52,21 @@ get_header();
 		</section><!-- End of Who -->
 		<section class="feat-link">
 		<?php 
-		if ( get_field('featured_service') ) {
-			echo "TEST";
-		}
-
+		if ( get_field('featured_service') ) :
 		$post_object = get_field('featured_service');
 
-		if( $post_object ): 
+			if( $post_object ): 
 
 			$post = $post_object;
 			setup_postdata( $post ); 
 
 			?>
 			<div>
-				<h2>Featured Service: <?php the_title(); ?></h2>
+				<h2>Featured Service - <?php the_title(); ?></h2>
 				<h3><?php the_content() ?></h3>
 				<?php 
 					if (function_exists('get_field')) :
+						the_post_thumbnail('medium');
 						if (get_field('description')) : ?>
 						<p><?php echo custom_field_excerpt(); ?></p>
 						<a href="<?php the_permalink(); ?>">Read More</a>
@@ -77,7 +75,8 @@ get_header();
 				?>
 			</div>
 			<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
-		<?php endif; ?>
+		<?php endif; 
+		endif;?>
 		</section>
 		</main><!-- #main -->
 	</div><!-- #primary -->
