@@ -1,17 +1,10 @@
 a {
-  color: black;
+  font-family: $font-brand-san-serif;
+  font-weight: 300;
   text-decoration: none;
+  @include link-black-hover;
+}
 
-  &:hover,
-  &:focus,
-  &:active {
-    color: $color-primary-mint;
-  }
-  &:focus {
-    outline: thin dotted;
-  }
-  &:hover,
-  &:active {
-    outline: 0;
-  }
+.underline {
+  text-decoration: underline;
 }

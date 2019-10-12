@@ -56,7 +56,7 @@ get_header();
 				if ( $field ) { ?>
 					<h2>About Us</h2>
 					<p><?php echo $field[ 'value' ]; ?></p>
-					<a href="<?php echo get_permalink( get_page_by_path( 'about' )) ?>">Learn More</a>
+					<a class="underline" href="<?php echo get_permalink( get_page_by_path( 'about' )) ?>">Learn More</a>
 				<?php }
 			}?>	
 		</section><!-- End of Who -->
@@ -73,16 +73,21 @@ get_header();
 			?>
 			<div>
 				<h2>Featured Service - <?php the_title(); ?></h2>
-				<h3><?php the_content() ?></h3>
+				<div class="feat-sub-title"><?php the_content() ?></div>
+				<div class="feat-service-conatiner">
+					<span class="feat-image">
 				<?php 
 					if (function_exists('get_field')) :
-						the_post_thumbnail('medium');
+						the_post_thumbnail('large');
 						if (get_field('description')) : ?>
-						<p><?php echo custom_field_excerpt(); ?></p>
-						<a href="<?php the_permalink(); ?>">Read More</a>
+						</span>
+						<span class="feat-content">
+						<?php echo custom_field_excerpt(); ?>
+						<a class="underline" href="<?php the_permalink(); ?>">Read More</a>
 						<?php endif;
 					endif; 				
-				?>
+				?></span>
+				</div>
 			</div>
 			<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
 		<?php endif; 

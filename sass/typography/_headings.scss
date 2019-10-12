@@ -16,4 +16,15 @@ h3 {
 h1,
 h2 {
   letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h2 {
+  color: $color-heading-grey;
+  font-size: 2em;
+  margin: 0 0 0.3em;
+}
+
+h3 {
+  margin: 0 0 0.3em;
 }

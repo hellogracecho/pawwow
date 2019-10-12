@@ -85,6 +85,8 @@
 }
 .front-slider {
   margin-top: -90px;
+  margin-left: -10em;
+  margin-right: -10em;
 }
 .slick-initialized .slick-slide {
   display: block;

@@ -42,7 +42,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Galleries
 --------------------------------------------------------------*/
 @import url("https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap");
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -378,11 +378,21 @@ h3 {
 
 h1,
 h2 {
-  letter-spacing: 2px; }
+  letter-spacing: 2px;
+  text-transform: uppercase; }
+
+h2 {
+  color: #2c796c;
+  font-size: 2em;
+  margin: 0 0 0.3em; }
+
+h3 {
+  margin: 0 0 0.3em; }
 
 p {
-  margin-bottom: 1.5em;
-  font-family: "Open Sans", sans-serif; }
+  margin: 0 0 0.5em;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.8em; }
 
 dfn,
 cite,
@@ -568,14 +578,16 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  text-decoration: none;
   color: black;
-  text-decoration: none; }
+  transition: all 0.3s ease-out; }
   a:hover, a:focus, a:active {
     color: #3cb7a3; }
-  a:focus {
-    outline: thin dotted; }
-  a:hover, a:active {
-    outline: 0; }
+
+.underline {
+  text-decoration: underline; }
 
 /*--------------------------------------------------------------
 ## Menus
@@ -583,7 +595,6 @@ a {
 .site-header {
   z-index: 999;
   padding: 1em;
-  max-width: 1200px;
   margin: 0 auto;
   height: 80px;
   width: 100%;
@@ -591,13 +602,21 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(255, 255, 255, 0);
-  -webkit-transition: all ease-out 0.5s;
-  -moz-transition: all ease-out 0.5s;
-  -o-transition: all ease-out 0.5s;
-  transition: all ease-out 0.5s; }
+  background-color: rgba(255, 255, 255, 0); }
   .site-header.active {
     background-color: white; }
+    .site-header.active::before, .site-header.active::after {
+      content: "";
+      position: absolute;
+      /* fill vertically */
+      top: 0;
+      bottom: 0;
+      width: 9600px;
+      right: 100%;
+      background: white; }
+    .site-header.active::after {
+      width: 9600px;
+      left: 100%; }
   .site-header .site-branding {
     position: absolute;
     z-index: 9999;
@@ -607,7 +626,10 @@ a {
       max-width: 280px; }
   @media screen and (min-width: 700px) {
     .site-header {
-      padding: 1.5em 1em; }
+      padding: 1.5em 1em;
+      max-width: 1200px;
+      left: 50%;
+      transform: translateX(-50%); }
       .site-header .site-branding {
         position: unset;
         margin-right: 2em; } }
@@ -641,10 +663,14 @@ a {
   line-height: 60px;
   z-index: 999; }
   .main-navigation.toggled .nav-menu {
-    display: block;
-    height: 100%;
+    display: grid;
+    height: calc(100vh - 60px);
     opacity: 1;
-    clear: both; }
+    clear: both;
+    padding: 20% 0;
+    align-items: center; }
+    .main-navigation.toggled .nav-menu li {
+      font-size: 2em; }
   .main-navigation ul {
     display: none;
     padding-left: 0; }
@@ -653,7 +679,7 @@ a {
     float: none; }
   .main-navigation li a {
     display: block;
-    padding: 0em 1em;
+    padding: 1em;
     font-size: 0.9em;
     text-align: center;
     font-weight: 700;
@@ -674,10 +700,10 @@ a {
   .main-navigation .current_page_item > a:hover,
   .main-navigation .current_page_item li:hover,
   .main-navigation .current_page_parent .current_page_item > a {
-    color: white; }
+    background: #fcffa1b3; }
 
 .menu-main-menu-container > ul {
-  background: #4b4b4bce; }
+  background: #ffffffc8; }
 
 /* Small menu. */
 .menu-toggle {
@@ -721,14 +747,15 @@ a {
       display: none;
       float: left;
       padding: 14px 0 0 0;
-      margin-left: 0;
+      margin-left: 1em;
       width: max-content; }
     .main-navigation ul ul a {
+      text-transform: uppercase;
       height: 36px;
       line-height: 36px;
-      text-transform: none;
       text-align: left;
-      background-color: #fff; }
+      background-color: white;
+      padding: 0 2em; }
     .main-navigation ul li:hover > ul {
       display: block; }
     .main-navigation .current_page_item > a,
@@ -736,16 +763,18 @@ a {
     .main-navigation .current_page_item > a:hover,
     .main-navigation .current-menu-item > a:hover,
     .main-navigation ul a:hover,
-    .main-navigation ul ul a:hover,
     .main-navigation .current_page_ancestor,
     .main-navigation ul ul .current_page_parent,
     .main-navigation .current_page_parent .current_page_item > a,
-    .main-navigation ul ul :hover > a,
     .main-navigation .current_page_item > a,
     .main-navigation .current_page_item > a:hover,
     .main-navigation .current_page_item li:hover,
     .main-navigation .current_page_parent .current_page_item > a {
-      color: #3cb7a3; } }
+      color: #3cb7a3;
+      background: none; }
+    .main-navigation ul ul a:hover,
+    .main-navigation ul ul :hover > a {
+      background: white; } }
 .site-main .comment-navigation,
 .site-main .posts-navigation,
 .site-main .post-navigation {
@@ -828,12 +857,8 @@ a {
 .entry-content:after,
 .comment-content:before,
 .comment-content:after,
-.site-header:before,
-.site-header:after,
 .site-content:before,
-.site-content:after,
-.site-footer:before,
-.site-footer:after {
+.site-content:after {
   content: "";
   display: table;
   table-layout: fixed; }
@@ -841,13 +866,14 @@ a {
 .clear:after,
 .entry-content:after,
 .comment-content:after,
-.site-header:after,
-.site-content:after,
-.site-footer:after {
+.site-content:after {
   clear: both; }
 
 .content-area {
   margin-top: 90px; }
+
+section {
+  margin: 2em 0; }
 
 /*--------------------------------------------------------------
 # Widgets
@@ -878,7 +904,7 @@ a {
 .page-content,
 .entry-content,
 .entry-summary {
-  margin: 1.5em 0 0; }
+  margin: 0; }
 
 .page-links {
   clear: both;
@@ -891,15 +917,16 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
-    color: white; }
+    text-align: center; }
     .front-slider .hero-text h1 {
+      color: white;
       font-size: 3em;
       line-height: 1em;
       letter-spacing: 4px;
       text-transform: uppercase;
       margin: 0 0 1em; }
     .front-slider .hero-text h2 {
+      color: white;
       margin: 0;
       letter-spacing: 2px;
       text-transform: capitalize;
@@ -909,6 +936,79 @@ a {
         font-size: 5em; }
       .front-slider .hero-text h2 {
         font-size: 2em; } }
+
+.feat-sub-title p {
+  font-size: 1.2em;
+  font-weight: 600; }
+
+.feat-service-conatiner {
+  display: grid;
+  grid-gap: 1em; }
+  @media (min-width: 700px) {
+    .feat-service-conatiner {
+      grid-template-columns: 2fr 3fr; } }
+
+.banner {
+  position: relative;
+  height: 50vh; }
+  .banner .banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
+    .banner .banner-text h1 {
+      color: white;
+      font-size: 3em;
+      line-height: 1em;
+      letter-spacing: 4px;
+      text-transform: uppercase; }
+    @media (min-width: 600px) {
+      .banner .banner-text h1 {
+        font-size: 5em; } }
+  .banner .banner-image {
+    height: 100%; }
+    .banner .banner-image img {
+      height: 100%;
+      object-fit: cover; }
+
+.map {
+  display: grid;
+  grid-gap: 1em;
+  grid-template-areas: "info" "image"; }
+  .map .map-info {
+    font-family: "Open Sans", sans-serif;
+    grid-area: info; }
+    .map .map-info .map-button {
+      display: inline-block;
+      border-radius: 3px;
+      font-size: 1em;
+      margin: 1em 0;
+      padding: 0.5em 1em;
+      background: #2c796c;
+      color: white;
+      transition: all 0.3s ease-out; }
+      .map .map-info .map-button:hover, .map .map-info .map-button:active, .map .map-info .map-button:focus {
+        color: #fcffa1;
+        background: #3cb7a3; }
+  .map .map-image {
+    grid-area: image; }
+
+.contact-form .wpcf7,
+.contact-form input {
+  font-family: "Open Sans", sans-serif; }
+.contact-form input.wpcf7-submit {
+  border: none;
+  border-radius: 3px;
+  font-size: 1em;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  background: #2c796c;
+  color: white;
+  transition: all 0.3s ease-out; }
+  .contact-form input.wpcf7-submit:hover, .contact-form input.wpcf7-submit:active, .contact-form input.wpcf7-submit:focus {
+    color: #fcffa1;
+    background: #3cb7a3; }
 
 /*--------------------------------------------------------------
 ## Comments

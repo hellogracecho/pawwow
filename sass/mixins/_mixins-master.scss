@@ -39,3 +39,38 @@
     color: $color-primary-yellow;
   }
 }
+
+@mixin link-black-hover {
+  color: black;
+  transition: all 0.3s ease-out;
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-primary-mint;
+  }
+}
+
+@mixin hero-text-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+@mixin button-submit {
+  border-radius: 3px;
+  font-size: 1em;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  background: $color-heading-grey;
+  color: white;
+  transition: all 0.3s ease-out;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $color-primary-yellow;
+    background: $color-primary-mint;
+  }
+}
