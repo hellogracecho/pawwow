@@ -16,14 +16,15 @@ html {
 }
 
 /* Sections
-	 ========================================================================== */
+========================================================================== */
 
 /**
- * Remove the margin in all browsers.
- */
+* Remove the margin in all browsers.
+*/
 
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 /**
