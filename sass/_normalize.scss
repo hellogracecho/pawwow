@@ -344,3 +344,13 @@ template {
 [hidden] {
   display: none;
 }
+
+section,
+.services-list {
+  margin: 2em 0;
+
+  @media (min-width: 700px) {
+    max-width: 900px;
+    margin: 4em auto;
+  }
+}

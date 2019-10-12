@@ -135,16 +135,18 @@
   padding: 2em;
   margin: 1em auto;
   max-width: 1200px;
-  white-space: nowrap;
   flex-direction: column;
   h2 {
     margin: 0 0 0.5em 0;
+    text-align: center;
   }
   a {
     margin: 0;
   }
 
   @media (min-width: 600px) {
+    white-space: nowrap;
+    max-width: 900px;
     flex-direction: row;
     h2 {
       margin: 0 2em 0 0;

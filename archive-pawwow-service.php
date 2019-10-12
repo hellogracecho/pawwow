@@ -14,11 +14,16 @@ get_header();
 		<main id="main" class="site-main">
 
 		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
+		<div class="banner">
+			<div class="banner-image">
+				<?php the_post_thumbnail('full'); ?>
+			</div>
+			<div class="banner-text">
 				<h1>Our Services</h1>
-			</header><!-- .page-header -->
+			</div>
+		</div>
 
+		<div class="services-list">
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) :
@@ -41,7 +46,7 @@ get_header();
 
 		endif;
 		?>
-
+		</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

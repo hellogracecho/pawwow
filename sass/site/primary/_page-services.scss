@@ -1,0 +1,56 @@
+.services-list {
+  display: grid;
+  grid-gap: 2em;
+
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pawwow-service {
+    position: relative;
+
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.8);
+      padding: 0.5em 1em;
+
+      .entry-title {
+        margin: 0;
+
+        a {
+          color: $color-heading-grey;
+          font-size: 1em;
+          margin: 0;
+          font-family: $font-brand-serif;
+          white-space: nowrap;
+        }
+      }
+
+      .entry-content {
+        display: none;
+      }
+    }
+
+    overflow: hidden;
+    .hero-image {
+      height: 100%;
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+      filter: grayscale(0.6);
+      -webkit-filter: grayscale(0.6);
+      opacity: 0.9;
+      transition: all 0.5s ease-out;
+      &:hover,
+      &:focus,
+      &:active {
+        opacity: 1;
+        filter: grayscale(0);
+        -webkit-filter: grayscale(0);
+      }
+    }
+  }
+}
