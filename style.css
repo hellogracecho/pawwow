@@ -365,11 +365,13 @@ template {
   display: none; }
 
 section,
-.services-list {
+.services-list,
+.post-157 {
   margin: 2em 0; }
   @media (min-width: 700px) {
     section,
-    .services-list {
+    .services-list,
+    .post-157 {
       max-width: 900px;
       margin: 4em auto; } }
 
@@ -381,9 +383,10 @@ button,
 input,
 select,
 optgroup,
-textarea {
+textarea,
+figure {
   color: #404040;
-  font-family: sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
