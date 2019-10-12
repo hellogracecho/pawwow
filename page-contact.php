@@ -29,7 +29,7 @@ get_header();
 		<?php if (function_exists('get_field')) {
 				$field = get_field_object('general_message');
 				if ( $field ) { ?>
-					<p><?php the_field('general_message'); ?></p>
+					<h3><?php the_field('general_message'); ?></h3>
 				<?php }
 			}?>	
 		</section>
@@ -47,7 +47,7 @@ get_header();
 			<?php 
 				$link = get_field('map_link');
 				if( $link ): ?>
-					<div><a class="map-button" href="<?php echo $link; ?>" target="_blank" rel="nofollow">Get Directions</a></div>
+					<div><a class="button" href="<?php echo $link; ?>" target="_blank" rel="nofollow">Get Directions</a></div>
 				<?php endif; ?>
 			</div>
 		</section>

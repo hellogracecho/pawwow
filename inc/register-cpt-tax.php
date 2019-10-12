@@ -47,11 +47,8 @@ function pawwow_register_custom_post_types()
 		'hierarchical'       => false,
 		'menu_position'      => 5,
 		'menu_icon'          => 'dashicons-buddicons-activity',
-		'supports'           => array('title', 'thumbnail', 'editor'),
-		'template'           => array(
-            array('core/paragraph',array('placeholder' => 'Write sub title of the sercive...')),
-		),
-        'template_lock' => 'all',    
+		'supports'           => array('title', 'thumbnail'),
+
     );
     register_post_type('pawwow-service', $args);
     
@@ -88,11 +85,8 @@ function pawwow_register_custom_post_types()
 		'hierarchical'       => false,
 		'menu_position'      => 5,
 		'menu_icon'          => 'dashicons-awards',
-        'supports'           => array('title', 'thumbnail', 'editor'),
-        'template'           => array(
-			array('core/paragraph',array('placeholder' => 'Write a description / Special services/events...'))
-		        ),
-        'template_lock' => 'all'    
+        'supports'           => array('title', 'thumbnail'),
+       
 	);
 
 	register_post_type('pawwow-special', $args);

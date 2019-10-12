@@ -54,7 +54,7 @@
 						</span>
 						<span class="feat-content">
 						<?php echo custom_field_excerpt(); ?>
-						<a class="underline" href="<?php the_permalink(); ?>">Read More</a>
+						<a class="button" href="<?php the_permalink(); ?>">Read More</a>
 						<?php endif;
 					endif; 				
 				?></span>

@@ -105,23 +105,43 @@
 
 // Contact Page
 .map {
+  background: #89898924;
+  padding: 1em;
+  margin: 3em -1em;
   display: grid;
-  grid-gap: 1em;
   grid-template-areas:
     "info"
     "image";
 
   .map-info {
+    padding: 1em;
+    background: #fff;
     font-family: $font-brand-san-serif;
     grid-area: info;
-    .map-button {
-      display: inline-block;
-      @include button-submit;
-    }
   }
 
   .map-image {
     grid-area: image;
+  }
+
+  @media (min-width: 700px) {
+    max-width: 900px;
+    margin: 4em auto;
+
+    grid-template-areas: "image info";
+    grid-template-columns: minmax(300px, 3fr) 2fr;
+
+    .map-image {
+      height: 450px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .map-info {
+      padding: 1em 2em;
+    }
   }
 }
 

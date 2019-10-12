@@ -88,6 +88,12 @@
   margin-left: -10em;
   margin-right: -10em;
 }
+@media (min-width: 1200px) {
+  .front-slider {
+    margin-left: -500px;
+    margin-right: -500px;
+  }
+}
 .slick-initialized .slick-slide {
   display: block;
   height: 100vh;

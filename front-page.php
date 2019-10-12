@@ -56,7 +56,7 @@ get_header();
 				if ( $field ) { ?>
 					<h2>About Us</h2>
 					<p><?php echo $field[ 'value' ]; ?></p>
-					<a class="underline" href="<?php echo get_permalink( get_page_by_path( 'about' )) ?>">Learn More</a>
+					<a class="button" href="<?php echo get_permalink( get_page_by_path( 'about' )) ?>">Learn More</a>
 				<?php }
 			}?>	
 		</section><!-- End of Who -->
@@ -83,7 +83,7 @@ get_header();
 						</span>
 						<span class="feat-content">
 						<?php echo custom_field_excerpt(); ?>
-						<a class="underline" href="<?php the_permalink(); ?>">Read More</a>
+						<a class="button" href="<?php the_permalink(); ?>">Read More</a>
 						<?php endif;
 					endif; 				
 				?></span>

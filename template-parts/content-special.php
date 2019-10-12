@@ -21,22 +21,17 @@
 	<div class="entry-content">
 	
 		<?php
-		the_content( sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'pawwow' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
+
+		if (function_exists('get_field')) :
+			if (get_field('sub_title')) : ?>
+			<section>
+			<h3><?php the_field('sub_title'); ?></h3></section>
+			<?php endif;
+		endif; 
 
 		if (function_exists('get_field')) :
 			if (get_field('description')) : ?>
-			<p><?php the_field('description'); ?></p>
+			<section><p><?php the_field('description'); ?></p></section>
 			<?php endif;
 		endif; 
 
