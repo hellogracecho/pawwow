@@ -6,6 +6,7 @@
 
     h1 {
       color: white;
+      text-shadow: 0px 4px $color-heading-grey;
       font-size: 3em;
       line-height: 1em;
       letter-spacing: 4px;
@@ -15,6 +16,7 @@
 
     h2 {
       color: white;
+      text-shadow: 0px 3px $color-heading-grey;
       margin: 0;
       letter-spacing: 2px;
       text-transform: capitalize;

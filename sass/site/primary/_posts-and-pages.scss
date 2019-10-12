@@ -31,6 +31,7 @@
     @include hero-text-center;
     h1 {
       color: white;
+      text-shadow: 0px 4px $color-heading-grey;
       font-size: 3em;
       line-height: 1em;
       letter-spacing: 4px;
