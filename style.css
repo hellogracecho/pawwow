@@ -663,22 +663,6 @@ a {
         position: unset;
         margin-right: 2em; } }
 
-.menu-toggle {
-  display: block;
-  margin: 0;
-  padding: 15px 1em;
-  font-size: 0.9em;
-  color: #fff;
-  float: right;
-  border: none;
-  box-shadow: none;
-  text-shadow: none;
-  cursor: pointer;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: transparent; }
-
 .main-navigation {
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
@@ -689,14 +673,7 @@ a {
   line-height: 60px;
   z-index: 999; }
   .main-navigation.toggled .nav-menu {
-    display: grid;
-    height: 50vh;
-    opacity: 1;
-    clear: both;
-    padding: 0;
-    align-items: center; }
-    .main-navigation.toggled .nav-menu li {
-      font-size: 1.5em; }
+    display: none; }
   .main-navigation ul {
     display: none;
     padding-left: 0; }
@@ -731,26 +708,23 @@ a {
 .menu-main-menu-container > ul {
   background: #ffffffc8; }
 
-/* Small menu. */
-.menu-toggle {
-  display: block; }
-
 .main-navigation.toggled ul {
   display: none; }
 
 /***************************************/
 /** Media Query **/
 /***************************************/
-@media screen and (min-width: 700px) {
-  .menu-toggle {
-    display: none; }
-
+@media (min-width: 700px) {
   .menu-main-menu-container > ul {
     background: none; }
 
   .menu-main-menu-container > ul > li > a {
-    padding: 0 20px; }
+    padding: 0 20px; } }
+  @media (min-width: 700px) and (min-width: 900px) {
+    .menu-main-menu-container > ul > li > a {
+      font-size: 1em; } }
 
+@media (min-width: 700px) {
   .sub-menu {
     width: 100%; }
 
@@ -840,6 +814,82 @@ a {
       color: #fcffa1;
       background: #4f4f4f; }
 
+.nav-button {
+  display: inline;
+  position: absolute;
+  right: 20px;
+  top: 22px;
+  z-index: 9999;
+  font-size: 30px; }
+
+.nav-button a {
+  text-decoration: none; }
+
+.btn-open:after {
+  content: url("images/nav-open.png");
+  transition-property: all 0.2s linear 0s;
+  -moz-transition: all 0.2s linear 0s;
+  -webkit-transition: all 0.2s linear 0s;
+  -o-transition: all 0.2s linear 0s; }
+
+.btn-open:hover:after {
+  color: #34b484; }
+
+.btn-close:after {
+  content: url("images/nav-close.png");
+  transition-property: all 0.2s linear 0s;
+  -moz-transition: all 0.2s linear 0s;
+  -webkit-transition: all 0.2s linear 0s;
+  -o-transition: all 0.2s linear 0s; }
+
+.btn-close:hover:after {
+  color: #34b484; }
+
+/*overlay*/
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  margin-left: -1em;
+  background: rgba(51, 51, 51, 0.7);
+  overflow: auto;
+  z-index: 999; }
+  .overlay .menu-main-menu-container {
+    text-align: center;
+    margin: 0 auto; }
+    .overlay .menu-main-menu-container .sub-menu {
+      display: none; }
+    .overlay .menu-main-menu-container ul {
+      background: rgba(51, 51, 51, 0.7);
+      text-transform: uppercase;
+      padding: 150px 0px 100px;
+      display: flex;
+      flex-direction: column; }
+      .overlay .menu-main-menu-container ul li {
+        font-size: 20px;
+        display: inline-block;
+        padding: 1em;
+        position: relative; }
+      .overlay .menu-main-menu-container ul a {
+        color: #34b484;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 600;
+        display: inline-block;
+        padding: 1em;
+        text-decoration: none;
+        transition-property: all 0.2s linear 0s;
+        -moz-transition: all 0.2s linear 0s;
+        -webkit-transition: all 0.2s linear 0s;
+        -o-transition: all 0.2s linear 0s; }
+        .overlay .menu-main-menu-container ul a:hover {
+          color: #f0f0f0; }
+
+@media screen and (min-width: 700px) {
+  .nav-button,
+  .overlay {
+    display: none; } }
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -1163,9 +1213,12 @@ a {
     pointer-events: none;
     cursor: default; }
   .footer-container .menu-footer-sitemap-container a {
+    font-weight: 400;
+    text-transform: uppercase;
     line-height: 1.8em;
     color: white;
-    transition: all 0.3s ease-out; }
+    transition: all 0.3s ease-out;
+    letter-spacing: 1px; }
     .footer-container .menu-footer-sitemap-container a:hover, .footer-container .menu-footer-sitemap-container a:focus, .footer-container .menu-footer-sitemap-container a:active {
       color: #fcffa1; }
   @media (min-width: 560px) {

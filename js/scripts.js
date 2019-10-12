@@ -1,6 +1,6 @@
 jQuery(function($) {
   $(document).ready(function() {
-    $(".button a").click(function() {
+    $(".nav-button a").click(function() {
       $(".overlay").fadeToggle(200);
       $(this)
         .toggleClass("btn-open")
@@ -9,7 +9,7 @@ jQuery(function($) {
   });
   $(".overlay").on("click", function() {
     $(".overlay").fadeToggle(200);
-    $(".button a")
+    $(".nav-button a")
       .toggleClass("btn-open")
       .toggleClass("btn-close");
     open = false;
