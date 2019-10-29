@@ -129,6 +129,9 @@ add_action( 'widgets_init', 'pawwow_widgets_init' );
  * Enqueue scripts and styles.
  */
 function pawwow_scripts() {
+	// ** Add google font
+	wp_enqueue_style('pawwow-googlefont', 'https://fonts.googleapis.com/css?family=Abril+Fatface | Open+Sans:300,400,700');
+
 	wp_enqueue_style( 'pawwow-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'pawwow-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
